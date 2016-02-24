@@ -1,0 +1,6 @@
+/*
+Kristian Rekstad
+TDT4102 Prosedyre og objektorientert programmering
+Vår 2016
+Øving 
+*/
