@@ -18,6 +18,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oving4", "oving4\oving4.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oving5", "oving5\oving5.vcxproj", "{4BF35DC5-EE32-4DD7-9FED-E125DB00687C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oving6", "oving6\oving6.vcxproj", "{0D761B2C-2557-4CFD-ABBA-31BE389A4529}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -66,6 +68,14 @@ Global
 		{4BF35DC5-EE32-4DD7-9FED-E125DB00687C}.Release|x64.Build.0 = Release|x64
 		{4BF35DC5-EE32-4DD7-9FED-E125DB00687C}.Release|x86.ActiveCfg = Release|Win32
 		{4BF35DC5-EE32-4DD7-9FED-E125DB00687C}.Release|x86.Build.0 = Release|Win32
+		{0D761B2C-2557-4CFD-ABBA-31BE389A4529}.Debug|x64.ActiveCfg = Debug|x64
+		{0D761B2C-2557-4CFD-ABBA-31BE389A4529}.Debug|x64.Build.0 = Debug|x64
+		{0D761B2C-2557-4CFD-ABBA-31BE389A4529}.Debug|x86.ActiveCfg = Debug|Win32
+		{0D761B2C-2557-4CFD-ABBA-31BE389A4529}.Debug|x86.Build.0 = Debug|Win32
+		{0D761B2C-2557-4CFD-ABBA-31BE389A4529}.Release|x64.ActiveCfg = Release|x64
+		{0D761B2C-2557-4CFD-ABBA-31BE389A4529}.Release|x64.Build.0 = Release|x64
+		{0D761B2C-2557-4CFD-ABBA-31BE389A4529}.Release|x86.ActiveCfg = Release|Win32
+		{0D761B2C-2557-4CFD-ABBA-31BE389A4529}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
