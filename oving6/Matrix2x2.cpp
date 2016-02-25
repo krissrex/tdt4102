@@ -27,7 +27,7 @@ void Matrix2x2::set(int row, int column, double value)
 
 void Matrix2x2::print() const
 {
-	// Før jeg overloaded <<, brukte jeg det som står i overload-implementasjonen med std::cout. 
+	// FÃ¸r jeg overloaded <<, brukte jeg det som stÃ¥r i overload-implementasjonen med std::cout. 
 	std::cout << *this;
 }
 
@@ -58,9 +58,9 @@ Matrix2x2& Matrix2x2::operator+=(const Matrix2x2 & rhs)
 {
 	/*
 	Kvifor kan vi ikkje berre skrive: this = *this + rhs;
-		Fordi vi ikke har overloaded operator+, så vi må addere numbers.
+		Fordi vi ikke har overloaded operator+, sÃ¥ vi mÃ¥ addere numbers.
 
-	Kvifor kan du nytte operatorane += og -= når du arbeider med elementa i matrisa?
+	Kvifor kan du nytte operatorane += og -= nÃ¥r du arbeider med elementa i matrisa?
 		Fordi double har en operator+= 
 	*/
 	for (size_t i = 0; i < 2; i++)
@@ -88,11 +88,18 @@ Matrix2x2 & Matrix2x2::operator-=(const Matrix2x2 & rhs)
 Matrix2x2 & Matrix2x2::operator*=(const Matrix2x2 & rhs)
 {
 	/*
-	Kvifor kan du ikkje implementere *= på same måte som vi implementerte += og -= tidlegare?
-		Kan ikke lengre bruke *= på hvert element i arrayet, fordi det ikke er vanlig multiplikasjon
+	Kvifor kan du ikkje implementere *= pÃ¥ same mÃ¥te som vi implementerte += og -= tidlegare?
+		Kan ikke lengre bruke *= pÃ¥ hvert element i arrayet, fordi det ikke er vanlig multiplikasjon
+		
+		Svar: Joda, det er vanlig multiplikasjon. Men hvert medlemstall brukes flere ganger, slik at
+		      dersom lhs kontinuerlig oppdateres vil resultatet bli feil. :(
 
-	Kan du implementere *= ved å gjenbruke kode du har skrive allereie?
+	Kan du implementere *= ved Ã¥ gjenbruke kode du har skrive allereie?
 		Ja, slik:
+		
+		Svar: Evt. bare *this = *this * rhs; :)
+		
+		TilleggsspÃ¸rsmÃ¥l: Hvorfor returnereres *this?
 	*/
 
 	Matrix2x2 temp = *this * rhs;
@@ -144,11 +151,16 @@ Matrix2x2 Matrix2x2::operator*(const Matrix2x2 & rhs) const
 std::ostream & operator<<(std::ostream & os, const Matrix2x2 & rhs)
 {
 	/*
-	Kvifor bør denne funksjonen ta const argument? (t.d. const Matrix2x2 &rhs)
-		For vi vil ikke endre rhs når vi printer den
+	Kvifor bÃ¸r denne funksjonen ta const argument? (t.d. const Matrix2x2 &rhs)
+		For vi vil ikke endre rhs nÃ¥r vi printer den
+		- Og da er det lurt Ã¥ gi tydelig beskjed om at vi ikke har noen intensjon om det. Tar inn referanse
+		  for Ã¥ slippe unÃ¸dig kopiering.
 
-	Når bør vi, og når bør vi ikkje (evt kan ikkje) nytte const-argument?
-		Bør ikke være const hvis vi skal endre på data i argumentet
+	NÃ¥r bÃ¸r vi, og nÃ¥r bÃ¸r vi ikkje (evt kan ikkje) nytte const-argument?
+		BÃ¸r ikke vÃ¦re const hvis vi skal endre pÃ¥ data i argumentet
+		- Kan ikke vÃ¦re const, prÃ¸ver du Ã¥ endre en const kompilerer ikke koden.
+		-- Merk at ingen ting hindrer deg i Ã¥ si `type a = (type)a_const og sÃ¥ endre a. 
+		-- Dog kan du komme borti cache-problemer fordi kompilatoren har optimert.
 	*/
 
 	os << "|" << rhs.numbers[0][0] << " | " << rhs.numbers[1][0] << std::endl 
