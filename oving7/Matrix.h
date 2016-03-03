@@ -11,7 +11,8 @@ public:
 	Matrix(size_t nRows, size_t nColumns);
 	// Creates an N x N square identity matrix
 	explicit Matrix(size_t n);
-
+	// Deep-copying copy constructor
+	Matrix(const Matrix &rhs);
 	~Matrix();
 
 	// 3d
@@ -26,6 +27,10 @@ public:
 	double get(unsigned int row, unsigned int col) const;
 	void set(unsigned int row, unsigned int col, double value);
 
+	Matrix &operator=(Matrix rhs);
+	Matrix &operator+=(const Matrix &rhs);
+	Matrix operator+(const Matrix &rhs) const;
+	
 	friend std::ostream& operator<<(std::ostream& os, const Matrix &rhs);
 
 private:
