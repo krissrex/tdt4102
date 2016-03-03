@@ -6,7 +6,7 @@ Vår 2016
 */
 
 #include <iostream>
-
+#include "Matrix.h"
 
 using namespace std;
 
@@ -17,8 +17,51 @@ void printArray(int[], int);
 // 1c
 void createFibonacci();
 
+// 3g - test av slettet copy-constructor
+Matrix test(Matrix asdf);
+
 int main() {
 	createFibonacci();
+
+	// 2g
+	cout << "Matrix test" << endl << endl;
+
+	Matrix a = Matrix(2);
+	Matrix b(4);
+	Matrix c(3, 5);
+
+	b.set(0, 2, 4.0);
+
+	cout << "A:" << endl << a;
+	cout << "B:" << endl << b;
+	cout << "C:" << endl << c;
+
+	// 3
+	cout << endl << "Kopieringstest" << endl << endl;
+	
+	cout << "A:" << endl << a << "B:" << b << endl;
+	a = b;
+	cout << "A = B" << endl << "A:" << endl << a << "B:" << b << endl;
+	b.set(1, 3, 7.0);
+	cout << "A:" << endl << a << "B:" << b << endl;
+
+	// Det er operator= som brukes
+	// A endres også. Den har samme peker i data som B.
+	// Data kopieres ikke med "deep copy", kun kopi av peker-verdi
+	
+	// 3b
+	Matrix C(a);
+	// Den kjører den standard copy-constructoren Matrix(Matrix &original).
+
+	// 3c
+	Matrix d = b;
+	// Den kjører den standard copy-constructoren Matrix(Matrix &original).
+
+	// 3f: 3c er litt uforventet
+
+	// 3g
+	//Matrix asd = test(b);
+	// Gir feil på både test og b.
 
 	cin.ignore();
 	cin.get();
@@ -60,4 +103,10 @@ void createFibonacci() {
 
 	// 4. Skriv ut resultatet til skjerm med printArray
 	printArray(fibs, num);		// 5. Frigjør minnet du har reservert	delete[] fibs;
+}
+
+Matrix test(Matrix asdf)
+{
+	// Gir feil på asdf
+	return asdf;
 }
