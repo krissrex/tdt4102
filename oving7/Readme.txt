@@ -56,9 +56,7 @@ Valid +=
 0       0       2
 
 Invalid +=
-2       0       0
-0       6       0
-0       0       2
+Invalid matrix
 
 A += B + C
 6       8
