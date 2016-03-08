@@ -1,8 +1,8 @@
 /*
 Kristian Rekstad
 TDT4102 Prosedyre og objektorientert programmering
-Vår 2016
-Øving 7
+VÃ¥r 2016
+Ã˜ving 7
 */
 
 #include <iostream>
@@ -47,22 +47,22 @@ int main() {
 	cout << "A:" << endl << a << "B:" << endl << b << endl;
 
 	// Det er operator= som brukes
-	// A endres også. Den har samme peker i data som B.
+	// A endres ogsÃ¥. Den har samme peker i data som B.
 	// Data kopieres ikke med "deep copy", kun kopi av peker-verdi
 	
 	// 3b
 	Matrix _c(a);
-	// Den kjører den standard copy-constructoren Matrix(Matrix &original).
+	// Den kjÃ¸rer den standard copy-constructoren Matrix(Matrix &original).
 
 	// 3c
 	Matrix d = b;
-	// Den kjører den standard copy-constructoren Matrix(Matrix &original).
+	// Den kjÃ¸rer den standard copy-constructoren Matrix(Matrix &original).
 
 	// 3f: 3c er litt uforventet
 
 	// 3g
 	//Matrix asd = test(b);
-	// Gir feil på både test og b.
+	// Gir feil pÃ¥ bÃ¥de test og b.
 
 	// 5a
 	Matrix lhs(3);
@@ -71,6 +71,7 @@ int main() {
 	lhs += rhs;
 	cout << "Valid +=" << endl << lhs << endl;
 	rhs = Matrix(5);
+	lhs += rhs;
 	cout << "Invalid +=" << endl << lhs << endl;
 
 	// 5c
@@ -86,13 +87,13 @@ int main() {
 	6    8
 	6.5  7
 
-	som den også gir når kjørt :)
+	som den ogsÃ¥ gir nÃ¥r kjÃ¸rt :)
 	*/
 	
-	// Litt rart at øvingen har smart pointers som mål, men ikke ber oss bruke det
+	// Litt rart at Ã¸vingen har smart pointers som mÃ¥l, men ikke ber oss bruke det
 	unique_ptr<int> test = make_unique<int>(4);  // unique, sletter data i destructor
 	shared_ptr<int> test2 = make_shared<int>(6);  // shared, refcounted
-	shared_ptr<int> test2_2{ test2 };  // deler data med test2. Når begge går ut av scope slettes 6
+	shared_ptr<int> test2_2{ test2 };  // deler data med test2. NÃ¥r begge gÃ¥r ut av scope slettes 6
 
 	cin.ignore();
 	cin.get();
@@ -121,7 +122,7 @@ void printArray(int arr[], int length) {
 }
 
 void createFibonacci() {
-	// 1. Spør brukeren hvor mange tall som skal genereres
+	// 1. SpÃ¸r brukeren hvor mange tall som skal genereres
 	int num;
 	cout << "Hvor mange fibonacci tall?" << endl;
 	cin >> num;
@@ -133,11 +134,14 @@ void createFibonacci() {
 	fillInFibonacciNumbers(fibs, num); // overflower ved num > 47
 
 	// 4. Skriv ut resultatet til skjerm med printArray
-	printArray(fibs, num);		// 5. Frigjør minnet du har reservert	delete[] fibs;
+	printArray(fibs, num);
+	
+	// 5. FrigjÃ¸r minnet du har reservert
+	delete[] fibs;
 }
 
 Matrix test(Matrix asdf)
 {
-	// Gir feil på asdf
+	// Gir feil pÃ¥ asdf
 	return asdf;
 }
