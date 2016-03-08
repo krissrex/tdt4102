@@ -120,6 +120,9 @@
   <ItemGroup>
     <ClInclude Include="CourseCatalog.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="catalog.dat" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

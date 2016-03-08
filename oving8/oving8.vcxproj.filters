@@ -35,4 +35,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="catalog.dat">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
