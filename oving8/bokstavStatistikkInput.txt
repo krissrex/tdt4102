@@ -1,0 +1,4 @@
+Programmet skal telle antall bokstaver i filen og hvor mange ganger hver bokstav forekommer.
+Du kan begrense antall forskjellige bokstaver du teller til normale engelske bokstaver
+(a–z) og du kan også forenkle oppgaven ved å konvertere alle bokstavene til små bokstaver
+med tolower(char).
