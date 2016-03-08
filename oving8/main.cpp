@@ -9,6 +9,8 @@ Vår 2016
 #include <fstream>
 #include <string>
 
+#include "CourseCatalog.h"
+
 using namespace std;
 
 // 1a
@@ -23,7 +25,41 @@ int main()
 {
 	//saveWordsToFile("output.txt");
 	//copyFileWithLineNumbers("input.txt", "inputLineNumbers.txt");
-	printCharStatistics("bokstavStatistikkInput.txt");
+	//printCharStatistics("bokstavStatistikkInput.txt");
+
+	// 3c
+	CourseCatalog catalog;
+	catalog.addCourse("TDT4110", "Informasjonsteknologi grunnkurs");
+	catalog.addCourse("TDT4102", "Prosedyre- og objektorientert programmering");
+	catalog.addCourse("TMA4100", "Matematikk 1");
+	catalog.printCourses();
+
+	/*
+	3d
+	Emnet TDT4102 blir som oftest bare kalt for «C++» blant studentene. Kan du oppdatere
+	emnenavnet i emnekatalogen din ved hjelp av funksjoner du allerede har implementert i
+	klassen?
+
+	Fordi addCourse bare bruker courses[code] = name, kan jeg like godt overskrive en eksisterende
+	med addCourse.
+	*/
+	catalog.addCourse("TDT4102", "C++");
+	catalog.printCourses();
+	
+	// 3e
+	cout << endl << "Serializing catalog to file" << endl;
+	const std::string catalogPath = "catalog.dat";
+	ofstream catalogFile{ catalogPath };
+	catalogFile << catalog;
+	catalogFile.close();
+
+	cout << "Deserializing catalog from file" << endl;
+	ifstream catalogInput{ catalogPath };
+	CourseCatalog catalogFromFile;
+	catalogInput >> catalogFromFile;
+	catalogInput.close();
+	catalogFromFile.printCourses();
+
 
 	cin.ignore();
 	cin.get();
